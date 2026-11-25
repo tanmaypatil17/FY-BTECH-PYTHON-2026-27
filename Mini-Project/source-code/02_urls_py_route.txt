@@ -1,0 +1,1 @@
+path('api/ai-search/', views.ai_candidate_search, name='api_ai_candidate_search'),

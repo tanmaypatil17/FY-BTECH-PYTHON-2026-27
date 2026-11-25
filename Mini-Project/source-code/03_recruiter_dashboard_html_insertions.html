@@ -1,0 +1,76 @@
+<section class="bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 shadow-sm mb-8">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-900 text-white shadow-sm">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h1 class="text-xl font-black text-blue-900">AI Candidate Search</h1>
+              <span class="rounded-full bg-blue-50 border border-blue-200 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-blue-800">
+                ✨ Powered by Gemini AI
+              </span>
+            </div>
+            <p class="text-xs text-gray-500">
+              Describe your ideal candidate in natural language—branch, skills, project experience, or CGPA range (above, below, or between).
+            </p>
+          </div>
+        </div>
+
+        <form id="ai-search-form" class="flex flex-col sm:flex-row gap-3">
+          <div class="relative flex-1">
+            <input
+              type="text"
+              id="ai-search-input"
+              placeholder="e.g. 'Looking for a student below CGPA 8' or 'AI-DS student who knows Python and Django'"
+              class="w-full rounded-xl border border-gray-300 bg-gray-50/60 pl-4 pr-10 py-3.5 text-sm text-gray-800 outline-none transition focus:bg-white focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
+            >
+            <button
+              type="button"
+              id="clear-search-btn"
+              class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-gray-400 hover:text-gray-700"
+            >
+              ✕
+            </button>
+          </div>
+          <button
+            type="submit"
+            class="rounded-xl bg-blue-900 px-7 py-3.5 text-sm font-bold text-white shadow-md hover:bg-blue-800 transition shrink-0"
+          >
+            ✨ Find Matches
+          </button>
+        </form>
+
+        <div class="mt-4 flex flex-wrap items-center gap-2">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-gray-400 mr-1">Try AI Prompts:</span>
+          <button type="button" data-prompt="Looking for an AI-DS student who knows Python and Machine Learning" class="ai-chip text-xs bg-gray-100 hover:bg-blue-50 hover:text-blue-900 text-gray-600 px-3 py-1 rounded-full transition">
+            "AI-DS + Python & ML"
+          </button>
+          <button type="button" data-prompt="Looking for a student below CGPA 8" class="ai-chip text-xs bg-gray-100 hover:bg-blue-50 hover:text-blue-900 text-gray-600 px-3 py-1 rounded-full transition">
+            "Below CGPA 8"
+          </button>
+          <button type="button" data-prompt="Top students with CGPA above 9.0" class="ai-chip text-xs bg-gray-100 hover:bg-blue-50 hover:text-blue-900 text-gray-600 px-3 py-1 rounded-full transition">
+            "CGPA 9.0+ Scholars"
+          </button>
+        </div>
+
+        <div id="ai-insights-banner" class="hidden mt-5 rounded-xl bg-blue-50/80 border border-blue-200 p-4 text-xs text-blue-950">
+          <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2 font-bold text-blue-900">
+              <span>🤖 AI Query Analysis:</span>
+              <span id="ai-analysis-summary" class="font-normal text-blue-800"></span>
+            </div>
+            <button type="button" id="reset-ai-filter" class="font-bold text-blue-700 hover:underline shrink-0">
+              Show All Candidates
+            </button>
+          </div>
+        </div>
+      </section>
+
+<div class="ai-match-badge hidden inline-flex items-center gap-1 rounded-full bg-blue-900 px-2.5 py-0.5 text-[10px] font-extrabold text-white">
+  <span>✨</span>
+  <span class="ai-score-text">95% Match</span>
+</div>
+
+<p class="ai-reason-box hidden mt-2.5 rounded-lg bg-emerald-50 border border-emerald-200 px-2.5 py-1.5 text-[11px] font-semibold text-emerald-900"></p>
